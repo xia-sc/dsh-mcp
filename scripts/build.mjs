@@ -43,19 +43,16 @@ const CHECKOUT = resolveCheckout()
 const MANIFEST = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'))
 const PLUGIN_ID = MANIFEST.name
 
-/** Platform module table (must stay aligned with packages/client/web/src/platform.ts + the runtime exemption). */
+/** Platform module table for DSH 0.1.2-alpha.3 (aligned with dsh-web-frontend/dist/assets zp()). */
 const EXTERNALS = [
   'react',
   'react/jsx-runtime',
   'react-dom',
   'react-dom/client',
   '@deepseek-ai/cordis',
+  '@deepseek-ai/dsh-client-store',
   '@deepseek-ai/dsh-client-ui-slots',
-  '@deepseek-ai/dsh-client-web-react',
   '@deepseek-ai/dsh-client-ui-primitives',
-  '@deepseek-ai/dsh-client-ui-attachment',
-  '@deepseek-ai/dsh-client-schema-form',
-  '@deepseek-ai/dsh-client-runtime/client',
 ]
 
 /** Locate the esbuild package inside a pnpm checkout (store or hoisted). */

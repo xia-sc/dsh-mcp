@@ -7,7 +7,7 @@
 import type {} from '@deepseek-ai/dsh-client-locale/client'
 // Type-only: the settings shell's SlotMap merge (the 'settings.section' entry).
 import type {} from '@deepseek-ai/dsh-client-ui-settings/client'
-import type { ClientContext } from '@deepseek-ai/dsh-client-runtime/client'
+import type { ClientContext } from '@deepseek-ai/dsh-client-store'
 // Local wire vocabulary (vendored from the original mcp-manager types).
 import type { McpManagerFailure, McpServerId, McpServerView } from './types.ts'
 import remoteContribution from './remote-contribution.js'

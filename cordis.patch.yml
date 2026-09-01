@@ -1,0 +1,8 @@
+# dsh-mcp bundle patch: host row for web profile.
+# Applied after dsh-web-app layer; requires storage-domain, credentials, tools
+# which are provided by dsh-base (host plane). The client row is declared in
+# package.json dsh.client (browser roster), the host row here mounts the
+# mcpManager service + per-server mcp-client mounts.
+- insert:
+    - id: dsh-mcp
+      name: dsh-mcp

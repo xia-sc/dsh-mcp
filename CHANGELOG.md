@@ -9,6 +9,13 @@
 
 ## [Unreleased]
 
+## [1.9.1] - 2026-09-01
+
+### 修复
+
+- **兼容 DSH 0.1.2-alpha.3**：补齐 `dsh.bundle` + `cordis.patch.yml` 使宿主可作为 bundle 加载；宿主 `node_modules` 自备全量 `@deepseek-ai/*` 以兼容 `link:` 真实路径解析；客户端对齐 0.1.2-alpha.3 的 `dsh-client-store` 种子表（`dsh-client-runtime` 在该版本不存在）并重建 `lib/client.js`，解决 `Failed to load plugins: client-modules: require("@deepseek-ai/dsh-client-runtime/client") missed the module table`
+- **文档**：`README.md` 删除 npm 安装方式，添加 fork 标识（本仓库 fork 自 https://github.com/ArvinQi/dsh-mcp ），安装方式更新为 GitHub git 源（`github:xia-sc/dsh-mcp`）与本地 link
+
 ## [1.9.0] - 2026-08-28
 
 ### 新增

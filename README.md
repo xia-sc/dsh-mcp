@@ -24,7 +24,7 @@
 - **双注入模式**：`search`（按需检索，省 token）与 `full`（全量注入）
 - **零 npm 依赖**：直接对接 DeepSeek Harness 内部能力，安装即用
 - **OAuth 认证支持**：`streamable-http` 服务器若走 MCP OAuth（授权码 + PKCE），连接时自动打开浏览器授权；token 与 client 信息持久化、由 SDK 自动刷新（24 小时内活跃自动续期），失效后自动重新授权
-- **三种安装方式**：npm / GitHub git 源 / 本地 link；中英文界面与文档
+- **两种安装方式**：GitHub git 源 / 本地 link；中英文界面与文档
 
 ## 功能
 
@@ -70,23 +70,19 @@ node scripts/build.mjs
 
 ## 安装使用
 
+> 本仓库 fork 自 https://github.com/ArvinQi/dsh-mcp
+
 ### 1. 安装
 
-**方式一：npm（发布到 npm 后）**
+**方式一：GitHub git 源**
 
 ```sh
-dsh plugin --profile web add dsh-mcp
-```
-
-**方式二：GitHub git 源**
-
-```sh
-dsh plugin --profile web add github:ArvinQi/dsh-mcp
+dsh plugin --profile web add github:xia-sc/dsh-mcp
 # 或
-dsh plugin --profile web add git+https://github.com/ArvinQi/dsh-mcp.git
+dsh plugin --profile web add git+https://github.com/xia-sc/dsh-mcp.git
 ```
 
-**方式三：本地开发（link）**
+**方式二：本地开发（link）**
 
 ```sh
 dsh plugin --profile web add link:<本仓库绝对路径>
@@ -96,7 +92,7 @@ dsh plugin --profile web add link:<本仓库绝对路径>
 > symlink（本机开发用，不入库），否则 `link:` 安装的 symlink 被 realpath 后无法解析
 > `@deepseek-ai/*`。
 
-### 2. 注册与生效（三种方式通用）
+### 2. 注册与生效（两种方式通用）
 
 在 `$DSH_HOME/profiles/web/cordis.patch.yml`（`$DSH_HOME` 默认 `~/.dsh`）追加：
 
@@ -133,10 +129,10 @@ dsh plugin --profile web add link:<本仓库绝对路径>
 3. **是否硬刷新了浏览器**：重启后用 `Cmd/Ctrl + Shift + R`（Windows/Linux：`Ctrl + Shift + R`）
    强制刷新；普通 `F5` 可能加载缓存的旧页面。
 4. **是否装到了正确的 profile**：确认安装与注册都在 `web` profile
-   （`dsh plugin --profile web add dsh-mcp` + `$DSH_HOME/profiles/web/cordis.patch.yml`）；
+   （`dsh plugin --profile web add github:xia-sc/dsh-mcp` + `$DSH_HOME/profiles/web/cordis.patch.yml`）；
    装到其他 profile 则在其他 profile 的设置页查看。
-5. **是否为最新版本**：npm 元数据缓存可能导致装到旧版，可强制指定版本
-   `dsh plugin --profile web add dsh-mcp@latest`（或 `@1.8.0`）。
+5. **是否为最新版本**：可强制指定版本
+   `dsh plugin --profile web add github:xia-sc/dsh-mcp#<tag>`（如 `#v1.9.1`）。
 
 **Q2：设置页能看到「MCP」，但服务器列表为空/报错？**
 
