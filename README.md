@@ -203,4 +203,3 @@ dsh plugin --profile web add link:<本仓库绝对路径>
   （link 安装直接生效）。
 - 配置变更（bundles 增删、新插件行）需重启 `dsh web` 才进入 client roster。
 
-[![dshfind](https://dshfind.com/api/card/ArvinQi/dsh-mcp?lang=zh)](https://dshfind.com/zh/plugins/ArvinQi/dsh-mcp?ref=badge)
